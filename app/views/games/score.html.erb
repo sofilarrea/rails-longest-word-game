@@ -1,0 +1,21 @@
+<h1>Welcome to the game!</h1>
+
+<div class="letras-areatorias">
+<h2> Letras areatorias</h2>
+  <ul>
+    <% @random_letras.each do |letter|%>
+    <li class="btn btn-primary"> <%= letter %></li>
+    <% end %>
+  </ul>
+</div>
+
+<form class="form-inline" action="/game/score" method="post" data-turbo="false">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<%= hidden_field_tag :grid, @random_letras %>
+
+<div class="form-group mx-sm-3 mb-2>
+<label for="inputWord" class="srr-only">Your guess</label>
+<input type="word" class="form-control" id="inputWord2" placehorlder="Your guess">
+</div>
+<button type="submit" class="btn btn-primary mb-2">Play</button>
+</form>
